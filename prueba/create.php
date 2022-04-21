@@ -1,77 +1,88 @@
-<?php
-$path = $_SERVER['DOCUMENT_ROOT'] . "/proyect/database.php";
-$path1 = $_SERVER['DOCUMENT_ROOT'] . "/proyect/client/home.php";
-
-include($path);
-include($path1);
  
- 
-
-	if ($_GET['id']) {
-		$id = $_GET['id'];
-		$query = "SELECT * FROM users WHERE id_user = '$id'";
-		$getPasien = $con->query($query);
-		$pasien = $getPasien->fetch_assoc();
-	}else {
-		header('Location: ../datatable.php');
-	}
-	
-	 
-		  
-	 
-?>
-
-<section class="pc-container">
-<!DOCTYPE html>
-<html>
 	<head>
 	    <meta charset="utf-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
-	 
- 
- 
-		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.css">
-		<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+		<title>DIGITAL EMPREND</title>
 	</head>
 	<body>
 		<section class="section">
-		    <div class="container">
-		      <h1 class="title has-text-centered">
-		        Editar cliente
-		      </h1>
-  	      	  <form method="POST" action="proses_update.php">
-  	      	  	<input type="hidden" name="id" value="<?php echo $id; ?>">
-  	      	  	<div class="field">
-		      	  	<label class="label">Nombre</label>
-		      		<input name="full_name" class="input" type="text" placeholder="Nombre completo" value="<?php echo $pasien['full_name']; ?>" required />
-  	      	  	</div>
-  	      	  	<div class="field">
-		      	  	<label class="label">Email</label>
-		      		<textarea name="email" class="textarea" placeholder="Email" rows="3"><?php echo $pasien['email']; ?></textarea>
-  	      	  	</div>
-  	      	  	<div class="field">
-		      	  	<label class="label">Password</label>
-		      		<input name="password" class="input" type="password" placeholder="Password" min="0" max="200" value="<?php echo $pasien['password']; ?>" />
-  	      	  	</div>
-  	      	  	<div class="field">
-		      	  	<label class="label">Estado</label>
-		      					 
-<select name="status">
-<option value="1">activo</option>
-<option value="2">pendiente</option>
-<option value="3">inactivo</option>
-</select>
-  	      	  	</div>
-  	      	  	
-  	      	  	<div class="field">
-		      	  	<label class="label">Pais</label>
-		      		<div class="select is-fullwidth">
-					 
-<select name="pais">
-<option value="AF">Afganistán</option>
-<option value="AL">Albania</option>
-<option value="DE">Alemania</option>
-<option value="AD">Andorra</option>
+		<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Validación de Formulario con Javascript</title> 
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<main>
+		<br>
+		<br>
+		<br>
+		<center><h1 class="mb-15 f-w-100">Agregar Nuevo Usuario</h1></center>
+		<form method="post" action="http://localhost/proyect/datatable/proses_create.php" class="formulario" id="formulario" >
+		<input type="hidden" name="creator" value="<?echo $_SESSION['full_name'];?>">
+		
+			<!-- Grupo: Nombre -->
+			<div class="formulario__grupo" id="grupo__nombre">
+				<label for="nombre" class="formulario__label">Nombre Completo</label>
+				<div class="formulario__grupo-input">
+					<input type="text" class="formulario__input" name="full_name" id="nombre" placeholder="Jose perez">
+					<i class="formulario__validacion-estado fas fa-times-circle"></i>
+				</div>
+				<p class="formulario__input-error">El usuario tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
+			</div>
+
+			<!-- Grupo: Contraseña -->
+			<div class="formulario__grupo" id="grupo__password">
+				<label for="password" class="formulario__label">Contraseña</label>
+				<div class="formulario__grupo-input">
+					<input type="password" class="formulario__input" name="password" id="password">
+					<i class="formulario__validacion-estado fas fa-times-circle"></i>
+				</div>
+				<p class="formulario__input-error">La contraseña tiene que ser de 4 a 12 dígitos.</p>
+			</div>
+
+			<!-- Grupo: Contraseña 2 -->
+			<div class="formulario__grupo" id="grupo__password2">
+				<label for="password2" class="formulario__label">Repetir Contraseña</label>
+				<div class="formulario__grupo-input">
+					<input type="password" class="formulario__input" name="password2" id="password2">
+					<i class="formulario__validacion-estado fas fa-times-circle"></i>
+				</div>
+				<p class="formulario__input-error">Ambas contraseñas deben ser iguales.</p>
+			</div>
+
+			<!-- Grupo: Correo Electronico -->
+			<div class="formulario__grupo" id="grupo__correo">
+				<label for="correo" class="formulario__label">Correo Electrónico</label>
+				<div class="formulario__grupo-input">
+					<input type="email" class="formulario__input" name="correo" id="correo" placeholder="correo@correo.com">
+					<i class="formulario__validacion-estado fas fa-times-circle"></i>
+				</div>
+				<p class="formulario__input-error">El correo solo puede contener letras, numeros, puntos, guiones y guion bajo.</p>
+			</div>
+
+			<div class="formulario__grupo" id="grupo__correo">
+				<label for="Estado" class="formulario__label">Estado</label>
+				  <div  class="select is-fullwidth">
+					<select class="form-control" name="id_status" >
+						<option value="1">Activo &#128994;</option>
+						<option value="2">Pendiente &#128993;</option>
+						<option value="3">Inactivo &#128308;</option> 
+						</select>
+					</div>
+			</div>
+
+			<div class="formulario__grupo" id="grupo__telefono">
+				<label for="Pais" class="formulario__label">Pais</label>
+			  <div  class="select is-fullwidth">
+			 
+<select class="form-control" name="pais"><br>
+<option value="Afganistán">Afganistán</option>
+<option value="Albania">Albania</option>
+<option value="Alemania">Alemania</option>
+<option value="Andorra">Andorra</option>
 <option value="AO">Angola</option>
 <option value="AI">Anguilla</option>
 <option value="AQ">Antártida</option>
@@ -113,7 +124,7 @@ include($path1);
 <option value="CN">China</option>
 <option value="CY">Chipre</option>
 <option value="VA">Ciudad del Vaticano (Santa Sede)</option>
-<option value="CO" selected >Colombia</option>
+<option value="COLOMBIA" selected >Colombia</option>
 <option value="KM">Comores</option>
 <option value="CG">Congo</option>
 <option value="CD">Congo, República Democrática del</option>
@@ -303,17 +314,123 @@ include($path1);
 <option value="ZM">Zambia</option>
 <option value="ZW">Zimbabue</option>
 </select>
-					</div>
-  	      	  	</div>
-  	      	  	 
-  	      	  	<div class="control">
-				  <input type="submit" class="button is-link" value="modificar" />
-				  <a href="../datatable.php" class="button">Volver</a>
-				</div>
-	      	  </form>
-		    </div>
-  	  	</section>
-	</body>
-</html>
+<br>
+			</div>
+			</div>	
+			  </div>
+			<div class="formulario__mensaje" id="formulario__mensaje">
+				<p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario correctamente. </p>
+			</div>
 
-</section>
+			<div class="formulario__grupo formulario__grupo-btn-enviar">
+				<br>
+				<br>
+				<button type="submit" class="formulario__btn">Enviar</button>
+				<p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!</p>
+			</div>
+			
+		</form>
+	</main>
+
+	<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+
+
+	<script>
+
+const formulario = document.getElementById('formulario');
+const inputs = document.querySelectorAll('#formulario input');
+
+const expresiones = {
+	usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
+	full_name: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
+	password: /^.{4,12}$/, // 4 a 12 digitos.
+	email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+	telefono: /^\d{7,14}$/ // 7 a 14 numeros.
+}
+
+const campos = {
+	usuario: false,
+	full_name: false,
+	password: false,
+	email: false,
+	telefono: false
+}
+
+const validarFormulario = (e) => {
+	switch (e.target.name) {
+		case "usuario":
+			validarCampo(expresiones.usuario, e.target, 'usuario');
+		break;
+		case "full_name":
+			validarCampo(expresiones.full_name, e.target, 'full_name');
+		break;
+		case "password":
+			validarCampo(expresiones.password, e.target, 'password');
+			validarPassword2();
+		break;
+		case "password2":
+			validarPassword2();
+		break;
+		case "correo":
+			validarCampo(expresiones.correo, e.target, 'correo');
+		break;
+		case "telefono":
+			validarCampo(expresiones.telefono, e.target, 'telefono');
+		break;
+	}
+}
+
+const validarCampo = (expresion, input, campo) => {
+	if(expresion.test(input.value)){
+		document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-incorrecto');
+		document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-correcto');
+		document.querySelector(`#grupo__${campo} i`).classList.add('fa-check-circle');
+		document.querySelector(`#grupo__${campo} i`).classList.remove('fa-times-circle');
+		document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.remove('formulario__input-error-activo');
+		campos[campo] = true;
+	} else {
+		document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-incorrecto');
+		document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-correcto');
+		document.querySelector(`#grupo__${campo} i`).classList.add('fa-times-circle');
+		document.querySelector(`#grupo__${campo} i`).classList.remove('fa-check-circle');
+		document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.add('formulario__input-error-activo');
+		campos[campo] = false;
+	}
+}
+
+const validarPassword2 = () => {
+	const inputPassword1 = document.getElementById('password');
+	const inputPassword2 = document.getElementById('password2');
+
+	if(inputPassword1.value !== inputPassword2.value){
+		document.getElementById(`grupo__password2`).classList.add('formulario__grupo-incorrecto');
+		document.getElementById(`grupo__password2`).classList.remove('formulario__grupo-correcto');
+		document.querySelector(`#grupo__password2 i`).classList.add('fa-times-circle');
+		document.querySelector(`#grupo__password2 i`).classList.remove('fa-check-circle');
+		document.querySelector(`#grupo__password2 .formulario__input-error`).classList.add('formulario__input-error-activo');
+		campos['password'] = false;
+	} else {
+		document.getElementById(`grupo__password2`).classList.remove('formulario__grupo-incorrecto');
+		document.getElementById(`grupo__password2`).classList.add('formulario__grupo-correcto');
+		document.querySelector(`#grupo__password2 i`).classList.remove('fa-times-circle');
+		document.querySelector(`#grupo__password2 i`).classList.add('fa-check-circle');
+		document.querySelector(`#grupo__password2 .formulario__input-error`).classList.remove('formulario__input-error-activo');
+		campos['password'] = true;
+	}
+}
+
+inputs.forEach((input) => {
+	input.addEventListener('keyup', validarFormulario);
+	input.addEventListener('blur', validarFormulario);
+});
+
+
+	$("#button").click(function(event){
+      alert("Formulario enviado con jQuery");
+      $('#formulario').submit();
+    });
+
+	</script>
+	</section>
+</body>
+</html>

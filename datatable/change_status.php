@@ -1,5 +1,11 @@
 <?php
-include("../database.php");
+ 
+$path = $_SERVER['DOCUMENT_ROOT'] . "/proyect/database.php";
+
+
+include($path);
+
+
   session_start();
 $creator=$_SESSION['full_name'];
 	if (isset($_GET['id'])) {

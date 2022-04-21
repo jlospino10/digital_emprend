@@ -128,6 +128,6 @@ include("database.php");
 </html>
 <?php
     }else{
-        header("Location: home.php");
+        header("Location: /proyect/client/home.php");
     }
 ?>

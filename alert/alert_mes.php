@@ -1,10 +1,11 @@
 <?php
- 	include("../database.php");
-	 include("../home.php");
+$path = $_SERVER['DOCUMENT_ROOT'] . "/proyect/database.php";
+$path1 = $_SERVER['DOCUMENT_ROOT'] . "/proyect/client/home.php";
+
+include($path);
+include($path1);
  
 ?>
-
-
 <section class="pc-container">
  <? 
  $a= $_SESSION['date_stop'];

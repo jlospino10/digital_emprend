@@ -60,7 +60,7 @@ if( $fila['total'] == 0)
 						type: "success",
 						timer: 2000
 					}, function() {
-					 		window.location = "../administrar.php";
+					 		window.location = "/proyect/admin/administrar.php";
 				});
 				}, 1000);
 			</script>
@@ -81,7 +81,7 @@ if( $fila['total'] == 0)
 						type: "warning",
 						timer: 2000
 					}, function() {
-					  window.location = "../administrar.php";
+					  window.location = "/proyect/admin/administrar.php";
 				});
 				}, 1000);
 			</script>

@@ -74,7 +74,7 @@ $pass=openssl_encrypt($password, 'aes-256-ecb', $contraseña);
 						showConfirmButton: false,
 						timer: 2000
 					}, function() {
-					 		window.location = "../home.php";
+					 		window.location = "/proyect/client/home.php";
 				});
 				}, 1000);
 			</script>
@@ -92,7 +92,7 @@ $pass=openssl_encrypt($password, 'aes-256-ecb', $contraseña);
 						showConfirmButton: false,
 						timer: 2000
 					}, function() {
-					 		window.location = "../login.php";
+					 		window.location = "/proyect/login.php";
 				});
 				}, 1000);
 			</script>
@@ -102,7 +102,7 @@ $pass=openssl_encrypt($password, 'aes-256-ecb', $contraseña);
 		}
 	}
 	else{
-		header("Location: ../login.php");
+		header("Location: /proyect/login.php");
 	}
 ?> 
 

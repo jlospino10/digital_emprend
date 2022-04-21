@@ -1,5 +1,9 @@
 <?php
-require("../database.php");
+$path = $_SERVER['DOCUMENT_ROOT'] . "/proyect/database.php";
+
+
+include($path);
+
 
 	if (isset($_POST)) {
 		$full_name = $_POST['full_name'];
@@ -16,10 +20,19 @@ $pass=openssl_encrypt($password, 'aes-256-ecb', $contraseña);
 $fecha_actual = date("Y-m-d");
 //sumo 1 mes
 $date_stop= date("Y-m-d",strtotime($fecha_actual."+ 1 month")); 
-//sumo 3 mes
+//sumo 3 mes 
 $licencia_stop= date("Y-m-d",strtotime($fecha_actual."+ 3 month")); 
 
+/*
 
+$resultAll = mysqli_query($con, "SELECT count(*) as total
+				  from users 
+				  		 
+				  WHERE
+				   email = '$email'");
+ while($rowData = mysqli_fetch_array($resultAll)){
+  		echo "ya existe", $rowData["total"].'<br>';
+	}*/
 		$query = "INSERT INTO `users` (`id_user`, `full_name`, `email`, `password`, `photo`, `pais`, `phone`, `id_payment`, `id_status`, `creator`, `date_start`, `date_stop`, `licencia_stop`) VALUES(NULL,'$full_name', '$email', '$pass', '', '$pais', '', NULL, '$status', '$creator','$fecha_actual', '$date_stop', '$licencia_stop')";
 	 
 

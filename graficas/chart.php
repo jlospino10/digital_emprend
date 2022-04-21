@@ -1,11 +1,15 @@
  
-<body >
+ 
 <?
  
+$path = $_SERVER['DOCUMENT_ROOT'] . "/proyect/graficas/db.php";
+$path1 = $_SERVER['DOCUMENT_ROOT'] . "/proyect/client/home.php";
+
+include($path);
+include($path1);
  
-  include("../home.php");
     $creator=$_SESSION['full_name'];
-require "db.php";// Database connection
+ 
 $query="SELECT s.name , COUNT(s.name) as total , s.name as estado from users u, status s where u.id_status = s.id_status and u.creator='$creator' GROUP by s.name";
 $step=$dbo->prepare($query);
 if($step->execute()){
@@ -23,7 +27,8 @@ var my_2d=".json_encode($php_data_array)."
 
 
 
- 
+ 	<body>
+		<section class="section">
   
 <div class="pc-container">
     <div class="pcoded-content">
@@ -49,17 +54,17 @@ var my_2d=".json_encode($php_data_array)."
         <div class="row">
             <!-- [ variant-chart ] start -->
             <div class="col-md-6">
-                <div class="card">
+                <div class=" ">
                     <div class="card-header">
                         <h5>Estados de clientes</h5>
                     </div>
                     <div class="card-body">
-                         <div id="chart_div"></div>
+                         <div id="chart_div" style="width:100%"></div>
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="card">
+                <div class=" ">
                     <div class="card-header">
                         <h5>Estados de clientes</h5>
                     </div>
@@ -67,55 +72,10 @@ var my_2d=".json_encode($php_data_array)."
                                      <div id=" "></div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h5>Bar chart</h5>
-                    </div>
-                    <div class="card-body">
-                        <div id="bar-chart-1"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h5>Bar chart horizontal</h5>
-                    </div>
-                    <div class="card-body">
-                        <div id="bar-chart-3"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h5>Pie Charts</h5>
-                    </div>
-                    <div class="card-body">
-                        <div id="pie-chart-1" style="width:100%"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h5>Pie Charts donut</h5>
-                    </div>
-                    <div class="card-body">
-                        <div id="pie-chart-2" style="width:100%"></div>
-                    </div>
-                </div>
-            </div>
-            <!-- [ variant-chart ] end -->
-
-        </div>
-        <!-- [ Main Content ] end -->
-    </div>
+            </div> 
 </div>
-
+<section>
+</body>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 

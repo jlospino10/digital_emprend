@@ -1,5 +1,12 @@
 <?php
-include("../database.php");
+
+$path = $_SERVER['DOCUMENT_ROOT'] . "/proyect/database.php";
+
+
+include($path);
+
+
+
 	if (isset($_GET['id'])) {
 		$id = $_GET['id'];
 		$query = "DELETE FROM users WHERE id_user = '$id'";

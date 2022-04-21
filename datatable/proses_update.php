@@ -1,5 +1,9 @@
 <?php
-include('../database.php');
+$path = $_SERVER['DOCUMENT_ROOT'] . "/proyect/database.php";
+
+
+include($path);
+
  
 		$id = $_POST['id'];
 		$name = $_POST['full_name'];

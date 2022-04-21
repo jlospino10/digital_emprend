@@ -5,58 +5,69 @@ $path1 = $_SERVER['DOCUMENT_ROOT'] . "/proyect/client/home.php";
 include($path);
 include($path1);
  
- 
-
-	if ($_GET['id']) {
-		$id = $_GET['id'];
-		$query = "SELECT * FROM users WHERE id_user = '$id'";
-		$getPasien = $con->query($query);
-		$pasien = $getPasien->fetch_assoc();
-	}else {
-		header('Location: ../datatable.php');
-	}
-	
-	 
-		  
-	 
 ?>
+
 
 <section class="pc-container">
 <!DOCTYPE html>
 <html>
+<script>
+ 
+const add_date_1_month = function(){
+    const date = new Date();
+    const date_add_mont = date.getMonth() + 1;
+    date.setMonth(date_add_mont);
+    if(date.getMonth() !== date_add_mont % 12) {
+        date.setDate(0); // last day of previous month
+    }
+    return date;
+}
+
+
+const add_date_3_month = function(){
+    const date = new Date();
+    const date_add_mont = date.getMonth() + 3;
+    date.setMonth(date_add_mont);
+    if(date.getMonth() !== date_add_mont % 12) {
+        date.setDate(0); // last day of previous month
+    }
+    return date;
+}
+
+
+</script>
+
 	<head>
 	    <meta charset="utf-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
-	 
- 
- 
+		<title>Add Pasien</title>
 		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.css">
-		<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
 	</head>
 	<body>
 		<section class="section">
 		    <div class="container">
 		      <h1 class="title has-text-centered">
-		        Editar cliente
+		       Agregar cliente   
 		      </h1>
-  	      	  <form method="POST" action="proses_update.php">
-  	      	  	<input type="hidden" name="id" value="<?php echo $id; ?>">
+  	      	  <form method="POST" action="proses_create.php">
+  	      	    	      	  	<input type="hidden" name="creator" value="<?echo $_SESSION['full_name'];?>">	  
+ 
   	      	  	<div class="field">
 		      	  	<label class="label">Nombre</label>
-		      		<input name="full_name" class="input" type="text" placeholder="Nombre completo" value="<?php echo $pasien['full_name']; ?>" required />
+		      		<input name="full_name" class="input" type="text" placeholder="Nombre completo" required />
   	      	  	</div>
   	      	  	<div class="field">
 		      	  	<label class="label">Email</label>
-		      		<textarea name="email" class="textarea" placeholder="Email" rows="3"><?php echo $pasien['email']; ?></textarea>
+		      		<input name="email" class="textarea" placeholder="Email" rows="3"> </input>
   	      	  	</div>
   	      	  	<div class="field">
 		      	  	<label class="label">Password</label>
-		      		<input name="password" class="input" type="password" placeholder="Password" min="0" max="200" value="<?php echo $pasien['password']; ?>" />
+		      		<input name="password" class="input" type="password" placeholder="Password" min="0" max="200" />
   	      	  	</div>
   	      	  	<div class="field">
 		      	  	<label class="label">Estado</label>
 		      					 
-<select name="status">
+<select name="id_status">
 <option value="1">activo</option>
 <option value="2">pendiente</option>
 <option value="3">inactivo</option>
@@ -307,10 +318,11 @@ include($path1);
   	      	  	</div>
   	      	  	 
   	      	  	<div class="control">
-				  <input type="submit" class="button is-link" value="modificar" />
+				  <input type="submit" class="button is-link" value="Agregar" />
 				  <a href="../datatable.php" class="button">Volver</a>
 				</div>
 	      	  </form>
+	      	  
 		    </div>
   	  	</section>
 	</body>
