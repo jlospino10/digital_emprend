@@ -32,6 +32,9 @@ echo "aun te quedan: ", $diff->days . ' dias ';
 $date2 = new DateTime($b);
 $diff = $date1->diff($date2);
 // will output 2 days
+?>
+ <!--HTML  -->
+<?
 echo "te has pasado  ", $diff->days . ' dias ';
   ?>
  	 <!-- aqui va el fronted de la alert -->

@@ -1,10 +1,14 @@
+ <?php
+$path = $_SERVER['DOCUMENT_ROOT'] . "/proyect/database.php";
+$path1 = $_SERVER['DOCUMENT_ROOT'] . "/proyect/client/home.php";
+
+include($path);
+include($path1);
  
-<?
-include("home.php");
 ?>
 
 <section class="pc-container">
-<form   action="Diseño/cargar_datos.php"  method="post" enctype="multipart/form-data"class="registration-form">
+<form   action="/proyect/Diseño/cargar_datos.php"  method="post" enctype="multipart/form-data"class="registration-form">
                        
                           <!-- FROM NAME -->
                        
