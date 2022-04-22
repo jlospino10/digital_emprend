@@ -6,7 +6,7 @@ $pass= substr(str_shuffle($permitted_chars), 0, 10);
 ?>
 
 
- <form id="form">
+ <form id="form" method="post" action="/proyect/recover_pass/verificacion_email.php" >
  
   <div class="field">
     <label for="destinatario">destinatario</label>
@@ -34,16 +34,14 @@ $pass= substr(str_shuffle($permitted_chars), 0, 10);
 
  
    
- 
- 
+  
 
 const btn = document.getElementById('button');
 
 document.getElementById('form')
  .addEventListener('submit', function(event) {
    event.preventDefault();
-
-   btn.value = 'Sending...';
+ 
 
    const serviceID = 'default_service';
    const templateID = 'template_jrzcupg';
@@ -53,21 +51,14 @@ document.getElementById('form')
       btn.value = 'Send Email';
      
 
+ 
+	     $('#form').submit();
+      
+      
+     
   
-    
-			 
-				setTimeout(function() {
-				swal({
-						title: "Perfecto!",
-						text: "Hemos enviado el correo, recibiras una copia como constancia, Revisa en SPAM si no aparece en tu bandeja de recibidos.",
-						type: "success",
-						showConfirmButton: false,
-						timer: 3500
-					}, function() {
-					 		window.location = "index.php";
-				});
-				}, 1000);
-			 
+		 
+    	 
 			 
     }, (err) => {
       btn.value = 'Send Email';
@@ -79,10 +70,20 @@ document.getElementById('form')
 						showConfirmButton: false,
 						timer: 2000
 					}, function() {
-					 		window.location = "contactenos.php";
+ 
 				});
 				}, 1000);
+				
+				
+		
+				
+				
 });
+
+ 
+ 
+
+	
 </script>
 <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>

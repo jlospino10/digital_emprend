@@ -39,8 +39,10 @@ include("database.php");
 
 </head>
 
+
 <!-- [ auth-signin ] start -->
 <div class="auth-wrapper">
+
 	<div class="auth-content">
 		<div class="card">
 			<div class="row align-items-center text-center">
@@ -78,7 +80,7 @@ include("database.php");
 							 <div class="card right">
 							 <img src="/proyect/uploads/<?echo  $row['image_login'];?>">
 								</div>
-							 <h5>¿Olvidaste Tu Contraseña?<a href="javascript:func()"> Precioname</a></h5>
+							 <h5>¿Olvidaste Tu Contraseña?<a href="/proyect/recover_pass/contactenos.php"> Precioname</a></h5>
 							 <script>
 
 						function func() {
