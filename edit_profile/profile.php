@@ -1,39 +1,90 @@
+<?php
+$path = $_SERVER['DOCUMENT_ROOT'] . "/proyect/database.php";
+$path1 = $_SERVER['DOCUMENT_ROOT'] . "/proyect/client/home.php";
+
+include($path);
+include($path1);
  
-     <!-- Watch this video https://youtu.be/dbGeDFl1v1s -->
- <?
-  
-    include("../home.php");
- ?>
- 
+?>
  <section class="pc-container">
- <br><br> <br><br> <br><br>
-<div class="padre">
+ 
+  <link rel="stylesheet" href="/proyect/Diseño/assets/css/ALERT.css">
 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
 
-<div class="card">
-        <img src="https://www.nautec.com/wp-content/uploads/2018/04/placeholder-person.png" alt="">
+
+<br><br><br> 
+  <div class="bodyaler">
+<div class="wrapperAlert">
+
+  <div class="contentAlert">
+
+    <div class="topHalf_payment">
+
+      <p><svg viewBox="0 0 512 512" width="100" title="check-circle">
+        <path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/>
+        </svg></p>
         
-        <br> <br>
-        <h3><span><?echo $_SESSION['full_name'];?></span></h3>
-        <div class="cont">
-            <p>
-           
-           <b> Correo: </b> <?echo $_SESSION['email'];?>  </p>
-           <p>  <b>pais:</b>  <?echo $_SESSION['pais'];?>  </p>
-            <p> <b>Creador: </b>  <?echo $_SESSION['creator'];?> </P>
-             <p> <b>Estado: </b>  <?echo $_SESSION['status'];?> </p>
-              <p> <b>Contenido_exp: </b>  <?echo $_SESSION['date_stop'];?> </p>
-               <p> <b>Licencia_exp: </b>  <?echo $_SESSION['licencia_stop'];?> </p>
-          
-            
-            <div class="link">
-                <a href="#"><i class="fab fa-codepen"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
-            </div>
-        </div>
+        	 
+      							     <div class="h1">
+   Informacion personal
+      </div>
+     					 
+       
+      
+     <ul class="bg-bubbles">
+       <ol></ol>
+       <ol></ol>
+       <ol></ol>
+       <ol></ol>
+       <ol></ol>
+       <ol></ol>
+       <ol></ol>
+       <ol></ol>
+       <ol></ol>
+       <ol></ol>
+     </ul>
     </div>
-        </div>
+<br><br>
+ 
+        
+          
+ <h3>
+							      		 
+         
+        
+        
+ 
+        <?echo $_SESSION['full_name'];?></span></h3>
+         
+        
+            
+        <div class="">
+            
+            <h3>
+           <b> Correo: </b> <?echo $_SESSION['email'];?>   <br>
+             <b>pais:</b>  <?echo $_SESSION['pais'];?>   <br>
+             <b>Creador: </b>  <?echo $_SESSION['creator'];?>  <br>
+              <b>Estado: </b>  <?echo $_SESSION['status'];?>  <br>
+               <b>Contenido_exp: </b>  <?echo $_SESSION['date_stop'];?>  <br>
+                 <b>Licencia_exp: </b>  <?echo $_SESSION['licencia_stop'];?>  
+           </h3>
+ 
+              
+
+     
+ 
+
+  </div>        
+
+</div>
+</div>
+</body>
+</html>
+ 
+        
+        
+        
+  
         
 </section>
 <style>

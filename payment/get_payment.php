@@ -1,4 +1,4 @@
-	<?php
+ 	<?php
 	 
 $path = $_SERVER['DOCUMENT_ROOT'] . "/proyect/database.php";
 $path1 = $_SERVER['DOCUMENT_ROOT'] . "/proyect/client/home.php";
@@ -15,39 +15,67 @@ include($path1);
 				      	?>
 			
  <section class="pc-container">
- <br><br> <br><br> <br><br>
-<div class="padre">
+ 
+  <link rel="stylesheet" href="/proyect/Diseño/assets/css/ALERT.css">
 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
 
-<div class="card">
+
+<br><br><br> 
+  <div class="bodyaler">
+<div class="wrapperAlert">
+
+  <div class="contentAlert">
+
+    <div class="topHalf_payment">
+
+      <p><svg viewBox="0 0 512 512" width="100" title="check-circle">
+        <path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/>
+        </svg></p>
+        
+        	 
+      							     <div class="h1">
+    Metodos de pagos
+      </div>
+     					 
+       
+      
+     <ul class="bg-bubbles">
+       <ol></ol>
+       <ol></ol>
+       <ol></ol>
+       <ol></ol>
+       <ol></ol>
+       <ol></ol>
+       <ol></ol>
+       <ol></ol>
+       <ol></ol>
+       <ol></ol>
+     </ul>
+    </div>
 <br><br>
  
         
-        <br> <br>
- 
-        <h3><span>               <br> <br>   <img src="https://www.nautec.com/wp-content/uploads/2018/04/placeholder-person.png" alt=""><br><br><?echo $_SESSION['full_name'];?></span></h3>
-        <div class="">
-        
-            <p>
- 
+          
+ <h3>
 							      		 
-         <p> <b>Nombre: </b>  <?echo $_SESSION['full_name'];?> </p>			      		
-           <p><b> Nequi: </b> <?php echo $row['nequi']; ?> </p>
-           <p>  <b>Paypal:</b>  <?php echo $row['paypal']; ?> </p>
-            <p> <b>Daviplata: </b> <?php echo $row['daviplata']; ?> </P>
-             <p> <b>Otro: </b>  <?php echo $row['otro']; ?></p>
+         <b>email: </b>  <?echo $_SESSION['email'];?>  	<br>		      		
+           <b> Nequi: </b> <?php if(isset($row['nequi'])){echo $row['nequi'];}else {echo "sin registro";} ?>  <br>
+            <b>Paypal:</b>  <?php if(isset($row['paypal'])){echo $row['paypal'];}else {echo "sin registro";} ?>    <br>
+           <b>Daviplata: </b> <?php if(isset($row['daviplata'])){echo $row['daviplata'];}else {echo "sin registro";} ?> <br>
+              <b>Otro: </b>   <?php if(isset($row['otro'])){echo $row['otro'];}else {echo "sin registro";} ?></p><br> </h3>
  
               
-          
-            
-            <div class="link">
-                <a href="#"><i class="fab fa-codepen"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
-            </div>
-        </div>
-    </div>
-        </div>
+
+     
+ 
+
+  </div>        
+
+</div>
+</div>
+</body>
+</html>
+ 
         
 </section>
 <style>

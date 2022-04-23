@@ -87,7 +87,22 @@ if( $fila['total'] == 0)
 			</script>
 			';
   
-} } 
+} }else {
+echo '
+			<script>
+				setTimeout(function() {
+				swal({
+						title: "Error!",
+						text: "Lo sentimos, ha ocurrido un error, por favor intente nuevamente.",
+						showConfirmButton: false,
+						type: "warning",
+						timer: 2000
+					}, function() {
+					  window.location = "/proyect/admin/administrar.php";
+				});
+				}, 1000);
+			</script>';
+}
  } 
 
  ?>

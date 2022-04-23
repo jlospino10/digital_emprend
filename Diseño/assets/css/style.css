@@ -4534,6 +4534,14 @@ textarea.form-control-lg {
 }
 img{
 	width: 150%;
+	
+}
+#contain{background-size:contain;}
+.bgsize{
+	width:86%; 
+ 
+	border:1px solid black;
+ 
 }
 .card {
     width: 720px;
